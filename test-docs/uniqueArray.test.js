@@ -24,3 +24,11 @@ console.assert(
   test3.length === 3 && test3[0] === 1 && test3[1] === 2 && test3[2] === 3,
   "Test 3 failed: Expected [1, 2, 3]"
 );
+
+// Test Case 4: Empty array
+// We expect [] to return []
+const test4 = uniqueArray([]);
+console.assert(
+  test4.length === 0,
+  "Test 4 failed: Expected empty array"
+);
