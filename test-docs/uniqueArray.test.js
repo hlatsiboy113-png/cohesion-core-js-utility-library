@@ -32,3 +32,13 @@ console.assert(
   test4.length === 0,
   "Test 4 failed: Expected empty array"
 );
+
+// Test Case 5: Array with all same values
+// We expect [5, 5, 5, 5] to become [5]
+const test5 = uniqueArray([5, 5, 5, 5]);
+console.assert(
+  test5.length === 1 && test5[0] === 5,
+  "Test 5 failed: Expected [5]"
+);
+
+console.log("All uniqueArray tests passed!");
