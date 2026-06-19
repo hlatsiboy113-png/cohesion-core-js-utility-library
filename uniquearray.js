@@ -58,3 +58,6 @@ function uniqueArrayDocumented(arr) {
   
   return result;
 }
+
+// Export the function so other files can use it
+module.exports = uniqueArray;
