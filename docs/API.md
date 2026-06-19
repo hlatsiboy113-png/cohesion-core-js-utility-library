@@ -1,149 +1,93 @@
-# Utility Functions API Documentation
+formatDate(date)
 
-## uniqueArray(arr)
-
-**Description:** Removes duplicate values from an array and returns a new array with only unique values.
-
-**Parameters:**
-- `arr` (Array): The input array that may contain duplicate values
-
-**Returns:**
-- (Array): A new array containing only unique values from the input array
-
-**Time Complexity:** O(n²) - nested loops to check for duplicates
-
-**Example:**
-```javascript
-uniqueArray([1, 2, 2, 3, 3, 3, 4]);
-// Returns: [1, 2, 3, 4]
-
-uniqueArray(['apple', 'banana', 'apple']);
-// Returns: ['apple', 'banana']
-
-
-
-How it works:
-
-1.
-Creates an empty array to store unique values
-
-2.
-Loops through each element in the input array
-
-3.
-For each element, checks if it already exists in the unique array
-
-4.
-If the element is not found, adds it to the unique array
-
-5.
-Returns the unique array
-
-
-
-
-removeSpaces(str)
-
-Description: Removes all spaces from a string and returns the string without spaces.
+Description: Formats a Date object into a standard YYYY-MM-DD string format.
 
 Parameters:
 
-•
-str (string): The input string that may contain spaces
+date (Date): The date object to format
 
 Returns:
 
-•
-(string): The string with all spaces removed
+(string): The formatted date in YYYY-MM-DD format
 
-Time Complexity: O(n) - single loop through the string
+Time Complexity: O(1) - direct date property access
 
 Example:
 
-JavaScript
+formatDate(new Date("2024-01-01"));
+// Returns: "2024-01-01"
 
-
-removeSpaces("hello world");
-// Returns: "helloworld"
-
-removeSpaces("  spaces  everywhere  ");
-// Returns: "spaceseverywhere"
-
-
+formatDate(new Date("2025-12-25"));
+// Returns: "2025-12-25"
 
 How it works:
 
-1.
-Creates an empty string to store the result
+1. Extracts the year from the Date object
+2. Extracts the month and adds 1 (since months are 0-indexed)
+3. Pads month with a leading zero if needed
+4. Extracts the day and pads it with a leading zero if needed
+5. Combines values into YYYY-MM-DD format
+6. Returns the formatted string
+formatTime(date)
 
-2.
-Loops through each character in the input string
-
-3.
-If the character is not a space, adds it to the result string
-
-4.
-If the character is a space, skips it
-
-5.
-Returns the result string
-
-
-
-
-deepClone(obj)
-
-Description: Creates a complete deep copy of an object or array, including all nested objects and arrays. Changes to the copy do not affect the original.
+Description: Formats a Date object into HH:MM (24-hour time) format.
 
 Parameters:
 
-•
-obj (Object|Array): The object or array to clone
+date (Date): The date object to format
 
 Returns:
 
-•
-(Object|Array): A deep copy of the input object or array
+(string): The formatted time in HH:MM format
 
-Time Complexity: O(n) where n is the total number of properties
+Time Complexity: O(1) - direct date property access
 
 Example:
 
-JavaScript
+formatTime(new Date("2024-01-01T09:05:00"));
+// Returns: "09:05"
 
-
-const original = { name: "Alice", address: { city: "NYC" } };
-const copy = deepClone(original);
-copy.address.city = "LA";
-console.log(original.address.city); // Still "NYC"
-
-const originalArray = [1, [2, 3]];
-const copyArray = deepClone(originalArray);
-copyArray[1][0] = 99;
-console.log(originalArray[1][0]); // Still 2
-
-
+formatTime(new Date("2024-01-01T23:59:00"));
+// Returns: "23:59"
 
 How it works:
 
-1.
-Checks if the input is null and returns null if it is
+1. Extracts hours from the Date object
+2. Extracts minutes from the Date object
+3. Pads hours with a leading zero if needed
+4. Pads minutes with a leading zero if needed
+5. Combines them into HH:MM format
+6. Returns the formatted string
+7. randomInt(min, max)
 
-2.
-Checks if the input is a primitive value and returns it as is
+Description: Generates a random integer between a minimum and maximum value (inclusive).
 
-3.
-Creates a new object or array depending on the input type
+Parameters:
 
-4.
-Loops through each property in the original object
+min (number): The minimum possible value
+max (number): The maximum possible value
 
-5.
-For each property, recursively clones it if it is an object or array
+Returns:
 
-6.
-For primitive values, copies them directly
+(number): A random integer between min and max (inclusive)
 
-7.
-Returns the cloned object
+Time Complexity: O(1) - constant time calculation
 
+Example:
+
+randomInt(1, 1);
+// Returns: 1
+
+randomInt(5, 5);
+// Returns: 5
+
+randomInt(1, 10);
+// Returns: (any number from 1 to 10)
+
+How it works:
+
+1. Generates a random decimal between 0 and 1
+2. Multiplies it by (max - min + 1)
+3. Floors the result to get an integer
+4. Adds the minimum value to shift the range
+5. Returns a whole number within the range
