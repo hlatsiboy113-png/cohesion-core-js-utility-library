@@ -16,3 +16,11 @@ console.assert(
   test2 === "spaceseverywhere",
   "Test 2 failed: Expected 'spaceseverywhere' but got '" + test2 + "'"
 );
+
+// Test Case 3: String with no spaces
+// We expect "nospaces" to stay "nospaces"
+const test3 = removeSpaces("nospaces");
+console.assert(
+  test3 === "nospaces",
+  "Test 3 failed: Expected 'nospaces' but got '" + test3 + "'"
+);
