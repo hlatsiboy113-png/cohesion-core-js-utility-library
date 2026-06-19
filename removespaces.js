@@ -39,3 +39,6 @@ function removeSpacesDocumented(str) {
   
   return output;
 }
+
+Export the function
+module.exports = removeSpaces;
