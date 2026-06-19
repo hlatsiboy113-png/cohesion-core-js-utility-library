@@ -9,3 +9,10 @@ console.assert(
   "Test 1 failed: Expected [1, 2, 3, 4]"
 );
 
+// Test Case 2: Array with duplicate strings
+// We expect ['apple', 'banana', 'apple'] to become ['apple', 'banana']
+const test2 = uniqueArray(['apple', 'banana', 'apple']);
+console.assert(
+  test2.length === 2 && test2[0] === 'apple' && test2[1] === 'banana',
+  "Test 2 failed: Expected ['apple', 'banana']"
+);
