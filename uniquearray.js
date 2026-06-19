@@ -23,3 +23,38 @@ function uniqueArray(arr) {
         found = true;
       }
     }
+
+    // If we did not find the element, we add it to the unique array
+    if (found === false) {
+      unique.push(currentElement);
+    }
+  }
+  
+  // Finally we return the unique array
+  return unique;
+}
+
+/**
+ * This function takes an array and returns a new array with only unique values
+ * @param {Array} arr The input array that may contain duplicate values
+ * @returns {Array} A new array with only unique values
+ */
+function uniqueArrayDocumented(arr) {
+  let result = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    let isDuplicate = false;
+    
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === arr[i]) {
+        isDuplicate = true;
+      }
+    }
+    
+    if (!isDuplicate) {
+      result.push(arr[i]);
+    }
+  }
+  
+  return result;
+}
