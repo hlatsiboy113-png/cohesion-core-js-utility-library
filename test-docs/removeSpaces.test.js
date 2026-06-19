@@ -24,3 +24,11 @@ console.assert(
   test3 === "nospaces",
   "Test 3 failed: Expected 'nospaces' but got '" + test3 + "'"
 );
+
+// Test Case 4: Empty string
+// We expect "" to return ""
+const test4 = removeSpaces("");
+console.assert(
+  test4 === "",
+  "Test 4 failed: Expected empty string"
+);
