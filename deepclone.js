@@ -14,3 +14,72 @@ function deepClone(obj) {
   if (typeof obj !== "object") {
     return obj;
   }
+
+  // Now we know it is an object or array
+  // We create a new object or array depending on what the input is
+  let cloned;
+  
+  // If it is an array, we create a new array
+  if (Array.isArray(obj)) {
+    cloned = [];
+  } else {
+    // If it is an object, we create a new object
+    cloned = {};
+  }
+  
+  // Now we loop through each property in the original object
+  for (let key in obj) {
+    // We check if this property belongs to the object itself, not inherited
+    if (obj.hasOwnProperty(key)) {
+      // We get the value of this property
+      let value = obj[key];
+      
+      // We check if the value is an object or array
+      if (typeof value === "object" && value !== null) {
+        // If it is, we recursively clone it
+        cloned[key] = deepClone(value);
+      } else {
+        // If it is not, we just copy it directly
+        cloned[key] = value;
+      }
+    }
+  }
+  
+   // Finally we return the cloned object
+  return cloned;
+}
+
+/**
+ * Creates a deep copy of an object or array
+ * @param {Object|Array} obj The object or array to clone
+ * @returns {Object|Array} A deep copy of the input
+ */
+function deepCloneDocumented(obj) {
+  if (obj === null) {
+    return null;
+  }
+  
+  if (typeof obj !== "object") {
+    return obj;
+  }
+  
+  let result;
+  
+  if (Array.isArray(obj)) {
+    result = [];
+  } else {
+    result = {};
+  }
+  
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if (typeof obj[prop] === "object" && obj[prop] !== null) {
+        result[prop] = deepCloneDocumented(obj[prop]);
+      } else {
+        result[prop] = obj[prop];
+      }
+    }
+  }
+  
+  return result;
+}
