@@ -83,3 +83,6 @@ function deepCloneDocumented(obj) {
   
   return result;
 }
+
+// Export the function
+module.exports = deepClone;
