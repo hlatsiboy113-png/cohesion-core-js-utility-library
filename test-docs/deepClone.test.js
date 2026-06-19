@@ -20,3 +20,13 @@ console.assert(
   test2Original.user.address.city === "NYC" && test2Clone.user.address.city === "LA",
   "Test 2 failed: Nested object should be deeply cloned"
 );
+
+// Test Case 3: Array
+// We create an array, clone it, change the clone
+const test3Original = [1, 2, 3];
+const test3Clone = deepClone(test3Original);
+test3Clone[0] = 99;
+console.assert(
+  test3Original[0] === 1 && test3Clone[0] === 99,
+  "Test 3 failed: Array should be cloned"
+);
