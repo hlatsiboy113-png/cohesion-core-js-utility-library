@@ -40,3 +40,13 @@ console.assert(
   test4Original[0].id === 1 && test4Clone[0].id === 100,
   "Test 4 failed: Array of objects should be deeply cloned"
 );
+
+// Test Case 5: Null value
+// We clone null and verify it returns null
+const test5Clone = deepClone(null);
+console.assert(
+  test5Clone === null,
+  "Test 5 failed: null should return null"
+);
+
+console.log("All deepClone tests passed!");
