@@ -1,93 +1,105 @@
-formatDate(date)
+# Utility Functions API Documentation
 
-Description: Formats a Date object into a standard YYYY-MM-DD string format.
+## capitalize(str)
 
-Parameters:
+**Description:** Capitalizes the first character of a string and returns the modified string.
 
-date (Date): The date object to format
+**Parameters:**
 
-Returns:
+* `str` (String): The input string to capitalize.
 
-(string): The formatted date in YYYY-MM-DD format
+**Returns:**
 
-Time Complexity: O(1) - direct date property access
+* (String): A new string with the first character converted to uppercase.
 
-Example:
+**Time Complexity:** O(n) - string slicing creates a new string based on the input length.
 
-formatDate(new Date("2024-01-01"));
-// Returns: "2024-01-01"
+**Example:**
 
-formatDate(new Date("2025-12-25"));
-// Returns: "2025-12-25"
+```javascript
+capitalize("hello");
+// Returns: "Hello"
 
-How it works:
+capitalize("javascript");
+// Returns: "Javascript"
+```
 
-1. Extracts the year from the Date object
-2. Extracts the month and adds 1 (since months are 0-indexed)
-3. Pads month with a leading zero if needed
-4. Extracts the day and pads it with a leading zero if needed
-5. Combines values into YYYY-MM-DD format
-6. Returns the formatted string
-formatTime(date)
+**How it works:**
 
-Description: Formats a Date object into HH:MM (24-hour time) format.
+1. Retrieves the first character of the input string.
+2. Converts the first character to uppercase.
+3. Extracts the remaining characters of the string.
+4. Concatenates the uppercase first character with the remaining characters.
+5. Returns the newly capitalized string.
 
-Parameters:
 
-date (Date): The date object to format
 
-Returns:
+## truncateText(text, maxLength)
 
-(string): The formatted time in HH:MM format
+**Description:** Shortens a string if it exceeds a specified maximum length and appends an ellipsis (`...`) to indicate truncation.
 
-Time Complexity: O(1) - direct date property access
+**Parameters:**
 
-Example:
+* `text` (String): The text to truncate.
+* `maxLength` (Number): The maximum allowed length before truncation.
 
-formatTime(new Date("2024-01-01T09:05:00"));
-// Returns: "09:05"
+**Returns:**
 
-formatTime(new Date("2024-01-01T23:59:00"));
-// Returns: "23:59"
+* (String): The original text if its length is within the limit; otherwise, a truncated version followed by `...`.
 
-How it works:
+**Time Complexity:** O(n) - may need to examine and copy characters from the string.
 
-1. Extracts hours from the Date object
-2. Extracts minutes from the Date object
-3. Pads hours with a leading zero if needed
-4. Pads minutes with a leading zero if needed
-5. Combines them into HH:MM format
-6. Returns the formatted string
-7. randomInt(min, max)
+**Example:**
 
-Description: Generates a random integer between a minimum and maximum value (inclusive).
+```javascript
+truncateText("Hello World", 5);
+// Returns: "Hello..."
 
-Parameters:
+truncateText("React", 10);
+// Returns: "React"
+```
 
-min (number): The minimum possible value
-max (number): The maximum possible value
+**How it works:**
 
-Returns:
+1. Checks the length of the input text.
+2. Compares the length to the specified maximum length.
+3. If the text length is less than or equal to the maximum length, returns the original text.
+4. If the text length exceeds the limit, extracts characters up to the maximum length.
+5. Appends `...` to the truncated text.
+6. Returns the resulting string.
 
-(number): A random integer between min and max (inclusive)
 
-Time Complexity: O(1) - constant time calculation
 
-Example:
+## reverseString(str)
 
-randomInt(1, 1);
-// Returns: 1
+**Description:** Reverses the order of characters in a string and returns the reversed string.
 
-randomInt(5, 5);
-// Returns: 5
+**Parameters:**
 
-randomInt(1, 10);
-// Returns: (any number from 1 to 10)
+* `str` (String): The string to reverse.
 
-How it works:
+**Returns:**
 
-1. Generates a random decimal between 0 and 1
-2. Multiplies it by (max - min + 1)
-3. Floors the result to get an integer
-4. Adds the minimum value to shift the range
-5. Returns a whole number within the range
+* (String): A new string with the characters in reverse order.
+
+**Time Complexity:** O(n) - each character is processed once during the reverse operation.
+
+**Example:**
+
+```javascript
+reverseString("hello");
+// Returns: "olleh"
+
+reverseString("JavaScript");
+// Returns: "tpircSavaJ"
+```
+
+**How it works:**
+
+1. Splits the string into an array of individual characters.
+2. Reverses the order of the characters in the array.
+3. Joins the reversed characters back into a single string.
+4. Returns the reversed string.
+
+```
+```
