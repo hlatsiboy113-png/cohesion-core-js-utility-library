@@ -32,3 +32,13 @@ console.assert(
   test4 === "",
   "Test 4 failed: Expected empty string"
 );
+
+// Test Case 5: String with only spaces
+// We expect "     " to become ""
+const test5 = removeSpaces("     ");
+console.assert(
+  test5 === "",
+  "Test 5 failed: Expected empty string but got '" + test5 + "'"
+);
+
+console.log("All removeSpaces tests passed!");
