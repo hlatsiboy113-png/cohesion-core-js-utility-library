@@ -30,3 +30,13 @@ console.assert(
   test3Original[0] === 1 && test3Clone[0] === 99,
   "Test 3 failed: Array should be cloned"
 );
+
+// Test Case 4: Array of objects
+// We create an array of objects, clone it, change the clone
+const test4Original = [{ id: 1 }, { id: 2 }];
+const test4Clone = deepClone(test4Original);
+test4Clone[0].id = 100;
+console.assert(
+  test4Original[0].id === 1 && test4Clone[0].id === 100,
+  "Test 4 failed: Array of objects should be deeply cloned"
+);
