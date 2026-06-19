@@ -22,3 +22,20 @@ function removeSpaces(str) {
   // We return the result string without spaces
   return result;
 }
+
+/**
+ * Removes all spaces from a string
+ * @param {string} str The input string that may contain spaces
+ * @returns {string} The string with all spaces removed
+ */
+function removeSpacesDocumented(str) {
+  let output = "";
+  
+  for (let index = 0; index < str.length; index++) {
+    if (str[index] !== " ") {
+      output += str[index];
+    }
+  }
+  
+  return output;
+}
