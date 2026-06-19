@@ -16,3 +16,11 @@ console.assert(
   test2.length === 2 && test2[0] === 'apple' && test2[1] === 'banana',
   "Test 2 failed: Expected ['apple', 'banana']"
 );
+
+// Test Case 3: Array with no duplicates
+// We expect [1, 2, 3] to stay [1, 2, 3]
+const test3 = uniqueArray([1, 2, 3]);
+console.assert(
+  test3.length === 3 && test3[0] === 1 && test3[1] === 2 && test3[2] === 3,
+  "Test 3 failed: Expected [1, 2, 3]"
+);
