@@ -1,3 +1,5 @@
+// Tests for truncateText()
+import { truncateText } from "../truncateText.js";
 console.assert(
   truncateText("Hello World", 5) === "Hello...",
   "truncateText test 1 failed"
@@ -14,4 +16,3 @@ console.assert(
 );
 
 console.log("All tests passed for truncateText!");
-
