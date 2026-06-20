@@ -1,4 +1,5 @@
 // Tests for formatDate()
+import { formatDate } from "../formatDate.js";
 
 console.assert(
   formatDate(new Date("2024-01-01")) === "2024-01-01",
@@ -15,3 +16,5 @@ console.assert(
   typeof dateResult === "string",
   "formatDate Test 3 failed"
 );
+
+console.log("All formatDate tests passed!");

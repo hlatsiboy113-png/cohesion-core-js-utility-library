@@ -1,52 +1,50 @@
 // Import the function
-const deepClone = require('./deepClone');
+import { deepClone } from "../deepClone.js";
 
-// Test Case 1: Simple object with primitive values
-// We create an object, clone it, change the clone, and verify the original is unchanged
-const test1Original = { name: "Alice", age: 25 };
-const test1Clone = deepClone(test1Original);
-test1Clone.name = "Bob";
+// Test Case 1: Cloning an object with a nested array
+// We expect mutating the clone's nested array to NOT affect the original
+const original1 = { name: "Cohesion", scores: [1, 2, 3] };
+const clone1 = deepClone(original1);
+clone1.scores.push(99);
 console.assert(
-  test1Original.name === "Alice" && test1Clone.name === "Bob",
-  "Test 1 failed: Original should be unchanged"
+  original1.scores.length === 3,
+  "Test 1 failed: Expected original.scores length to stay 3 but got '" + original1.scores.length + "'"
 );
 
-// Test Case 2: Nested object
-// We create an object with a nested object, clone it, change the nested value
-const test2Original = { user: { name: "Charlie", address: { city: "NYC" } } };
-const test2Clone = deepClone(test2Original);
-test2Clone.user.address.city = "LA";
+// Test Case 2: Cloning a nested object
+// We expect mutating the clone's nested object to NOT affect the original
+const original2 = { user: { name: "Blakk", age: 21 } };
+const clone2 = deepClone(original2);
+clone2.user.age = 999;
 console.assert(
-  test2Original.user.address.city === "NYC" && test2Clone.user.address.city === "LA",
-  "Test 2 failed: Nested object should be deeply cloned"
+  original2.user.age === 21,
+  "Test 2 failed: Expected original.user.age to stay 21 but got '" + original2.user.age + "'"
 );
 
-// Test Case 3: Array
-// We create an array, clone it, change the clone
-const test3Original = [1, 2, 3];
-const test3Clone = deepClone(test3Original);
-test3Clone[0] = 99;
+// Test Case 3: Cloning null
+// We expect deepClone(null) to return null
+const test3 = deepClone(null);
 console.assert(
-  test3Original[0] === 1 && test3Clone[0] === 99,
-  "Test 3 failed: Array should be cloned"
+  test3 === null,
+  "Test 3 failed: Expected null but got '" + test3 + "'"
 );
 
-// Test Case 4: Array of objects
-// We create an array of objects, clone it, change the clone
-const test4Original = [{ id: 1 }, { id: 2 }];
-const test4Clone = deepClone(test4Original);
-test4Clone[0].id = 100;
+// Test Case 4: Cloning a primitive value
+// We expect deepClone(42) to return 42 unchanged
+const test4 = deepClone(42);
 console.assert(
-  test4Original[0].id === 1 && test4Clone[0].id === 100,
-  "Test 4 failed: Array of objects should be deeply cloned"
+  test4 === 42,
+  "Test 4 failed: Expected 42 but got '" + test4 + "'"
 );
 
-// Test Case 5: Null value
-// We clone null and verify it returns null
-const test5Clone = deepClone(null);
+// Test Case 5: Cloning an array of objects
+// We expect a fully independent copy, not just a shallow array copy
+const original5 = [{ id: 1 }, { id: 2 }];
+const clone5 = deepClone(original5);
+clone5[0].id = 999;
 console.assert(
-  test5Clone === null,
-  "Test 5 failed: null should return null"
+  original5[0].id === 1,
+  "Test 5 failed: Expected original5[0].id to stay 1 but got '" + original5[0].id + "'"
 );
 
 console.log("All deepClone tests passed!");

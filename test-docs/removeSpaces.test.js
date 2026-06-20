@@ -1,5 +1,5 @@
 // Import the function
-const removeSpaces = require('./removeSpaces');
+import { removeSpaces } from "../removeSpaces.js";
 
 // Test Case 1: String with spaces in the middle
 // We expect "hello world" to become "helloworld"

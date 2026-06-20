@@ -1,3 +1,6 @@
+// Tests for reverseString()
+import { reverseString } from "../reverseString.js";
+
 console.assert(
   reverseString("hello") === "olleh",
   "reverseString test 1 failed"
