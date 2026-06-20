@@ -40,7 +40,6 @@ console.log(clone.scores);    // [1, 2, 3, 99]
 console.log("\n=== formatDate ===");
 console.log(formatDate(new Date("2026-06-19")));
 console.log(formatDate(new Date("2026-01-05")));
-
 // ── formatTime ───────────────────────────────────────────────
 console.log("\n=== formatTime ===");
 console.log(formatTime(new Date("2026-06-19T09:05:00")));            // 09:05 AM or similar
