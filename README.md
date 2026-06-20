@@ -4,7 +4,7 @@ A lightweight collection of reusable JavaScript utility functions designed to si
 
 ---
 
-## 📦 Utilities Included
+##  Utilities Included
 
 - slugify
 - countWords
@@ -21,7 +21,7 @@ A lightweight collection of reusable JavaScript utility functions designed to si
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Pure JavaScript (no dependencies)
 - ES Module based (`export / import`)
@@ -31,7 +31,7 @@ A lightweight collection of reusable JavaScript utility functions designed to si
 
 ---
 
-## 📂 Example Usage
+##  Example Usage
 
 ```js
 import { slugify, countWords } from "./utils/index.js";
