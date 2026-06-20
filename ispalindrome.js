@@ -27,7 +27,7 @@ export function isPalindrome(str, { strict = false } = {}) {
   return normalised === normalised.split("").reverse().join("");
 }
 
-// ── Tests ────────────────────────────────────────────────────────────────────
+// ── Tests ─────────────────────────────────────────────────────────────
 
 console.assert(
   isPalindrome("racecar") === true,
